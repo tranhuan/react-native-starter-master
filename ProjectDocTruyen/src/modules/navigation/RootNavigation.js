@@ -4,8 +4,7 @@ import { createAppContainer, createStackNavigator } from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
 
-import GalleryScreen from '../gallery/GalleryViewContainer';
-
+// import GalleryScreen from '../gallery/GalleryViewContainer';
 // To use this screens please see the full version at https://reactnativestarter.com
 // import ProfileScreen from '../containers/ProfileScreen';
 // import ArticleScreen from '../containers/ArticleScreen';

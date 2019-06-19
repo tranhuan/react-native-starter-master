@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from 'react-navigation';
 
 import { colors, fonts } from '../../styles';
 
-// import HomeScreen from '../home/HomeViewContainer';
+import HomeScreen from '../home/HomeViewContainer';
 // import CalendarScreen from '../calendar/CalendarViewContainer';
 // import GridsScreen from '../grids/GridsViewContainer';
 // import PagesScreen from '../pages/PagesViewContainer';
@@ -57,13 +57,13 @@ const styles = StyleSheet.create({
 });
 
 export default createBottomTabNavigator(
-  // {
-  //   Home: {
-  //     screen: HomeScreen,
-  //     navigationOptions: {
-  //       header: null,
-  //     },
-  //   },
+  {
+    Home: {
+      screen: HomeScreen,
+      navigationOptions: {
+        header: null,
+      },
+    },
   //   Calendar: {
   //     screen: CalendarScreen,
   //     navigationOptions: {
@@ -97,18 +97,18 @@ export default createBottomTabNavigator(
   //       ),
   //     },
   //   },
-  //   Components: {
-  //     screen: ComponentsScreen,
-  //     navigationOptions: {
-  //       header: (
-  //         <View style={styles.headerContainer}>
-  //           <Image style={styles.headerImage} source={hederBackground} />
-  //           <Text style={styles.headerCaption}>Components</Text>
-  //         </View>
-  //       ),
-  //     },
-  //   },
-  // },
+    // Components: {
+    //   screen: ComponentsScreen,
+    //   navigationOptions: {
+    //     header: (
+    //       <View style={styles.headerContainer}>
+    //         <Image style={styles.headerImage} source={hederBackground} />
+    //         <Text style={styles.headerCaption}>Components</Text>
+    //       </View>
+    //     ),
+    //   },
+    // },
+  },
   {
     defaultNavigationOptions: ({ navigation }) => ({
       // eslint-disable-next-line react/prop-types
