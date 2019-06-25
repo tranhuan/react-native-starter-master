@@ -8,6 +8,7 @@ import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Build;
+import android.support.v4.content.ContextCompat;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -34,7 +35,12 @@ public class GameSurface extends SurfaceView implements SurfaceHolder.Callback {
 
     public GameSurface(Context context)  {
         super(context);
-
+//        final int sdk = android.os.Build.VERSION.SDK_INT;
+//        if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+//            this.setBackgroundDrawable(ContextCompat.getDrawable(context, R.drawable.bgn1) );
+//        } else {
+//            this.setBackground(ContextCompat.getDrawable(context, R.drawable.bgn1));
+//        }
         // Đảm bảo Game Surface có thể focus để điều khiển các sự kiện.
         this.setFocusable(true);
 
@@ -42,6 +48,8 @@ public class GameSurface extends SurfaceView implements SurfaceHolder.Callback {
         this.getHolder().addCallback(this);
 
         this.initSoundPool();
+
+
     }
 
     private void initSoundPool()  {
