@@ -16,12 +16,14 @@ public class ChibiCharacter extends GameObject {
     private int rowUsing = ROW_LEFT_TO_RIGHT;
 
     private int colUsing;
-
+    // anh di chuyển trái qua phải
     private Bitmap[] leftToRights;
+    // ảnh di chuyển phải qua trái
     private Bitmap[] rightToLefts;
+    // ảnh di chuyển trên xuống dưới
     private Bitmap[] topToBottoms;
+    // ảnh di chuyển dưới lên trên
     private Bitmap[] bottomToTops;
-
 
     // Vận tốc di chuyển của nhân vật (pixel/milisecond).
     public static final float VELOCITY = 0.1f;
@@ -37,12 +39,12 @@ public class ChibiCharacter extends GameObject {
         super(image, 4, 3, x, y);
 
         this.gameSurface= gameSurface;
-
+        // số lượng chipi khi di chuyển theo 1 hướng
         this.topToBottoms = new Bitmap[colCount]; // 3
         this.rightToLefts = new Bitmap[colCount]; // 3
         this.leftToRights = new Bitmap[colCount]; // 3
         this.bottomToTops = new Bitmap[colCount]; // 3
-
+        // cắt ảnh chipi
         for(int col = 0; col< this.colCount; col++ ) {
             this.topToBottoms[col] = this.createSubImageAt(ROW_TOP_TO_BOTTOM, col);
             this.rightToLefts[col]  = this.createSubImageAt(ROW_RIGHT_TO_LEFT, col);
