@@ -31,10 +31,11 @@ public class GameSurface extends SurfaceView implements SurfaceHolder.Callback {
     private boolean soundPoolLoaded;
     private SoundPool soundPool;
 
-
+    private Context mContext;
 
     public GameSurface(Context context)  {
         super(context);
+        this.mContext = context;
 //        final int sdk = android.os.Build.VERSION.SDK_INT;
 //        if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
 //            this.setBackgroundDrawable(ContextCompat.getDrawable(context, R.drawable.bgn1) );
@@ -175,6 +176,10 @@ public class GameSurface extends SurfaceView implements SurfaceHolder.Callback {
     public void draw(Canvas canvas)  {
         super.draw(canvas);
 
+        // Vẽ backgroud canvas
+        Bitmap scaled = this.setBackGroudGame();
+        canvas.drawBitmap(scaled, 0, 0, null);
+
         for(ChibiCharacter chibi: chibiList)  {
             chibi.draw(canvas);
         }
@@ -185,10 +190,19 @@ public class GameSurface extends SurfaceView implements SurfaceHolder.Callback {
 
     }
 
-
+    private Bitmap setBackGroudGame(){
+        Bitmap background = BitmapFactory.decodeResource(getResources(), R.drawable.bgn1);
+        float scale = (float)background.getHeight()/(float)getHeight();
+        int newWidth = Math.round(background.getWidth()/scale);
+        int newHeight = Math.round(background.getHeight()/scale);
+        Bitmap scaled = Bitmap.createScaledBitmap(background, newWidth, newHeight, true);
+        return scaled;
+    }
     // Thi hành phương thức của interface SurfaceHolder.Callback
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
+//        setBackGroudGame();
+
         Bitmap chibiBitmap1 = BitmapFactory.decodeResource(this.getResources(),R.drawable.chibi1);
         ChibiCharacter chibi1 = new ChibiCharacter(this,chibiBitmap1,100,50);
 

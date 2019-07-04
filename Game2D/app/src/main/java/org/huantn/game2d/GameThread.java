@@ -51,13 +51,13 @@ public class GameThread extends Thread {
             if (waitTime < 10) {
                 waitTime = 10; // Millisecond.
             }
-            System.out.print(" Wait Time=" + waitTime);
+            System.out.println(" Wait Time=" + waitTime);
 
             try {
                 // Ngừng chương trình một chút.
                 this.sleep(waitTime);
             } catch (InterruptedException e) {
-
+                System.out.println("Error" + e.getMessage());
             }
             startTime = System.nanoTime();
             System.out.print(".");
